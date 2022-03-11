@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # as app will primarily respond to requests with json responses
   namespace :api, defaults: { format: :json } do
     
-    get 'profile' => 'profile#edit'
-    put 'profile' => 'profile#update'
+    # TODO: Change to patient (and use resources rails syntax)
+    get 'profile/:id' => 'profile#show', as: :profile
 
   end
 end

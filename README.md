@@ -16,3 +16,6 @@ as possible will be provided for better understanding of the intended responses.
 ## Chosen Stack for API
  - Ruby on Rails Framework
  - Postgresql Database
+
+
+## Setup
