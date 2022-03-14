@@ -48,7 +48,7 @@ class Api::PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def api_patient_params
-      params.fetch(:user, {
+      params.fetch(:user, {}).permit(
         :firstname,
         :middlename,
         :lastname,
@@ -57,6 +57,6 @@ class Api::PatientsController < ApplicationController
         :country,
         :contact_number,
         :ip_address
-      })
+      )
     end
 end
