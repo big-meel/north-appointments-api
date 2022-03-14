@@ -17,13 +17,13 @@ as possible will be provided for better understanding of the intended responses.
  - Ruby on Rails Framework (version 7)
  - Postgresql Database
 
- Rails can be configured by the inclusion of *Gems* (librabries or dependencies if you
- aren't familiar with ruby terminology) with pre packaged code to add extra functionality.
+Rails can be configured by the inclusion of *Gems* (librabries or dependencies if you
+aren't familiar with ruby terminology) with pre packaged code to add extra functionality.
  
- The North Appointments API uses the following 3rd party gems:
+The North Appointments API uses the following 3rd party gems:
  
- `rack-cors`: provides middleware for CORS configuration
- `pg`: Ruby interface to the Postgresql RDBMS
+ - `rack-cors`: provides middleware for CORS configuration
+ - `pg`: Ruby interface to the Postgresql RDBMS
 
 
 ## Setup
