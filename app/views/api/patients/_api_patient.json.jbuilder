@@ -6,7 +6,8 @@ json.extract! api_patient,
   :email,
   :date_of_birth,
   :country,
-  :contact_number, 
+  :contact_number,
+  :ip_address, 
   :created_at, 
   :updated_at
 json.url api_patient_url(api_patient, format: :json)
