@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # as app will primarily respond to requests with json responses
   namespace :api, defaults: { format: :json } do
     # TODO: Change to patient (and use resources rails syntax)
-    get 'profile/:id' => 'profile#show', as: :profile
+    post '/login',    to: 'sessions#create'
+    post '/logout',   to: 'sessions#destroy'
+    get '/logged_in', to: 'sessions#is_logged_in?'
     
     resources :patients
     resources :appointments

@@ -56,7 +56,9 @@ class Api::PatientsController < ApplicationController
         :date_of_birth,
         :country,
         :contact_number,
-        :ip_address
+        :ip_address,
+        :password,
+        :password_confirmation
       )
     end
 end
