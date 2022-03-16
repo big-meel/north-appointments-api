@@ -18,8 +18,9 @@ class Api::PatientsController < ApplicationController
     @api_patient = User.new(api_patient_params)
 
     if @api_patient.save
-      render :show, status: :created, location: @api_patient
+      render :show, status: :created, location: api_patient_url(@api_patient)
     else
+      # TODO: add errors to status
       render json: @api_patient.errors, status: :unprocessable_entity
     end
   end
@@ -28,7 +29,7 @@ class Api::PatientsController < ApplicationController
   # PATCH/PUT /api/patients/1.json
   def update
     if @api_patient.update(api_patient_params)
-      render :show, status: :ok, location: @api_patient
+      render :show, status: :ok, location: api_patient_url(@api_patient)
     else
       render json: @api_patient.errors, status: :unprocessable_entity
     end
