@@ -4,7 +4,11 @@ class Api::AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    @user_id = params[:patient_id]
+    @client_date = params[:client_date]
+
+    @appointments = Appointment.none 
+
   end
 
   # GET /appointments/1
