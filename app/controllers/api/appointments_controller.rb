@@ -7,7 +7,12 @@ class Api::AppointmentsController < ApplicationController
     @user_id = params[:patient_id]
     @client_date = params[:client_date]
 
-    @appointments = Appointment.none 
+    @appointments = Appointment.none unless (@user_id.present?)
+    
+    if @user_id.present?
+      @appointments = Appointment.for_user(@user_id)
+    end
+
 
   end
 
@@ -22,7 +27,7 @@ class Api::AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save
-      render :show, status: :created, location: @appointment
+      render :show, status: :created, location: api_appointment_path(@appointment)
     else
       render json: @appointment.errors, status: :unprocessable_entity
     end
@@ -32,7 +37,7 @@ class Api::AppointmentsController < ApplicationController
   # PATCH/PUT /appointments/1.json
   def update
     if @appointment.update(appointment_params)
-      render :show, status: :ok, location: @appointment
+      render :show, status: :ok, location: api_appointment_path(@appointment)
     else
       render json: @appointment.errors, status: :unprocessable_entity
     end
@@ -54,7 +59,8 @@ class Api::AppointmentsController < ApplicationController
     def appointment_params
       params.fetch(:appointment, {}).permit(
         :date,
-        :user_id
+        :user_id,
+        :description
       )
     end
 end
