@@ -27,3 +27,15 @@ The North Appointments API uses the following 3rd party gems:
 
 
 ## Setup
+
+ - Install Ruby and Ruby on Rails (see: https://guides.rubyonrails.org/getting_started.html)
+ - Setup Postgresql
+ - `cd` to app root directory and run `cp .env.dist .env `
+ - Add your database host, username, password and database name to new .env file
+ - Run the following commands if rails was set properly:
+ - `bundle install`
+ - `rails db:setup`
+ - `rails db:migrate`
+ - Run the server with `rails server`
+
+## Endpoints
